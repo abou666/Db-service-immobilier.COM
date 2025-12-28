@@ -1,6 +1,0 @@
-DB_NAME = "sig_db"
-DB_USER = "postgres"
-DB_PASSWORD = "postgres"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-SECRET_KEY = "CLE_SECRETE_SIG"
