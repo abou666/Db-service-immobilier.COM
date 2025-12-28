@@ -1,83 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nos Terrains - DB SERVICE IMMOBILIER</title>
-  <link rel="stylesheet" href="/Db-service-immobilier.COM/style.css" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Propriétés — DB SERVICE IMMOBILIER</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <h1>DB SERVICE IMMOBILIER</h1>
-          <p>Immobilier • Géomatique • Comptabilité</p>
-        </div>
-        <div class="nav-menu">
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="proprietes.html" class="active">Propriétés</a></li>
-            <li><a href="sig.html">Carte SIG</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="paiement.html">Paiement</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="btn-login">Connexion</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <header class="site-header"><div class="brand"><a href="index.html"><img src="images/logo.svg" alt="DB"></a></div>
+    <nav class="main-nav"><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="proprietes.html">Propriétés</a><a href="carte.html">Carte</a><a href="contact.html">Contact</a></nav>
+    <button id="nav-toggle" class="nav-toggle">☰</button>
   </header>
-
-  <section style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; padding: 60px 20px; text-align: center;">
-    <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Nos Propriétés</h1>
-    <p style="font-size: 1.1rem;">Découvrez nos sélections immobilières</p>
-  </section>
-
-  <section style="padding: 30px 20px; background: white; border-bottom: 1px solid #eee;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-      <select id="type-filter" style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
-        <option value="">Type de bien</option>
-        <option value="apartment">Appartement</option>
-        <option value="house">Maison</option>
-        <option value="villa">Villa</option>
-        <option value="studio">Studio</option>
-      </select>
-      
-      <select id="price-filter" style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
-        <option value="">Gamme de prix</option>
-        <option value="0-300000">0 - 300 000€</option>
-        <option value="300000-500000">300 000 - 500 000€</option>
-        <option value="500000-1000000">500 000 - 1 000 000€</option>
-        <option value="1000000">+ 1 000 000€</option>
-      </select>
-
-      <select id="location-filter" style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
-        <option value="">Région</option>
-        <option value="Paris">Paris</option>
-        <option value="Banlieue">Banlieue</option>
-        <option value="Province">Province</option>
-      </select>
-
-      <button onclick="resetFilters()" class="btn btn-secondary">Réinitialiser</button>
-    </div>
-  </section>
-
-  <section style="padding: 60px 20px; background: var(--light-bg);">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
-      <div class="properties-grid" id="properties-list">
-        <p>Chargement des propriétés...</p>
-      </div>
-    </div>
-  </section>
-
-  <footer style="background: var(--primary-color); color: white; padding: 60px 20px 20px; margin-top: 80px;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
-      <p style="text-align: center; opacity: 0.8;">&copy; 2025 DB SERVICE IMMOBILIER - Duékoué, Côte d'Ivoire. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-  <script src="/Db-service-immobilier.COM/script.js"></script>
+  <main class="container">
+    <h1>Liste des terrains</h1>
+    <div id="properties-list" class="cards"></div>
+  </main>
+  <footer class="site-footer"><div class="container">© DB SERVICE IMMOBILIER</div></footer>
+  <script src="js/main.js"></script>
 </body>
 </html>

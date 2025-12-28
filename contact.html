@@ -1,100 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - DB SERVICE IMMOBILIER</title>
-  <link rel="stylesheet" href="/Db-service-immobilier.COM/style.css" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — DB SERVICE IMMOBILIER</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <h1>DB SERVICE IMMOBILIER</h1>
-          <p>Immobilier • Géomatique • Comptabilité</p>
-        </div>
-        <div class="nav-menu">
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="proprietes.html">Propriétés</a></li>
-            <li><a href="sig.html">Carte SIG</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="paiement.html">Paiement</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li><a href="login.html" class="btn-login">Connexion</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <header class="site-header"><div class="brand"><a href="index.html"><img src="images/logo.svg" alt="DB"></a></div>
+    <nav class="main-nav"><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="proprietes.html">Propriétés</a><a href="carte.html">Carte</a><a href="contact.html">Contact</a></nav>
+    <button id="nav-toggle" class="nav-toggle">☰</button>
   </header>
-
-  <section style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: white; padding: 60px 20px; text-align: center;">
-    <h1 style="font-size: 2.5rem;">Nous Contacter</h1>
-    <p style="font-size: 1.1rem;">Nous sommes à votre écoute</p>
-  </section>
-
-  <section style="padding: 60px 20px; background: white;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start;">
-      <div>
-        <h2 style="color: var(--primary-color); margin-bottom: 30px;">Informations de Contact</h2>
-        
-        <div style="margin-bottom: 30px;">
-          <h3 style="color: var(--primary-color); margin-bottom: 10px;">📍 Localisation</h3>
-          <p>Duékoué<br/>Côte d'Ivoire</p>
-        </div>
-
-        <div style="margin-bottom: 30px;">
-          <h3 style="color: var(--primary-color); margin-bottom: 10px;">📞 Service Client</h3>
-          <p>+225 07 06 48 03 89</p>
-        </div>
-
-        <div style="margin-bottom: 30px;">
-          <h3 style="color: var(--primary-color); margin-bottom: 10px;">📞 Direction</h3>
-          <p>+225 07 47 29 65 71</p>
-        </div>
-
-        <div style="margin-bottom: 30px;">
-          <h3 style="color: var(--primary-color); margin-bottom: 10px;">📞 Autres Contacts</h3>
-          <p>+225 07 49 52 53 83<br/>+225 07 48 52 37 59</p>
-        </div>
-
-        <div style="margin-bottom: 30px;">
-          <h3 style="color: var(--primary-color); margin-bottom: 10px;">📧 Email</h3>
-          <p>dbservicesimmobiliers225@gmail.com</p>
-        </div>
-      </div>
-
-      <div>
-        <h2 style="color: var(--primary-color); margin-bottom: 30px;">Envoyez-nous un Message</h2>
-        <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
-          <input type="text" placeholder="Votre nom" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;" />
-          <input type="email" placeholder="Votre email" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;" />
-          <input type="tel" placeholder="Votre téléphone" style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;" />
-          <select required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
-            <option value="">-- Type de demande --</option>
-            <option value="achat">Achat de terrain</option>
-            <option value="vente">Vente de terrain</option>
-            <option value="geometre">Services géométriques</option>
-            <option value="comptabilite">Comptabilité immobilière</option>
-            <option value="paiement">Paiement en ligne</option>
-            <option value="autre">Autre</option>
-          </select>
-          <textarea placeholder="Votre message..." rows="5" required style="padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;"></textarea>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer</button>
-        </form>
-        <div id="form-message"></div>
-      </div>
-    </div>
-  </section>
-
-  <footer style="background: var(--primary-color); color: white; padding: 60px 20px 20px; margin-top: 80px;">
-    <div class="container" style="max-width: 1200px; margin: 0 aB SERVICE IMMOBILIER - Duékoué, Côte d'Ivoire
-      <p style="text-align: center; opacity: 0.8;">&copy; 2025 Db Services Immobiliers. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-  <script src="/Db-service-immobilier.COM/script.js"></script>
+  <main class="container">
+    <h1>Contactez-nous</h1>
+    <form id="contact-form">
+      <input name="name" placeholder="Nom" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="phone" placeholder="Téléphone">
+      <textarea name="message" placeholder="Votre message" required></textarea>
+      <button class="btn primary" type="submit">Envoyer</button>
+    </form>
+    <div id="contact-result" aria-live="polite"></div>
+  </main>
+  <footer class="site-footer"><div class="container">© DB SERVICE IMMOBILIER</div></footer>
+  <script src="js/main.js"></script>
 </body>
 </html>
