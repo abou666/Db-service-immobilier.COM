@@ -1,27 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Contact — DB SERVICE IMMOBILIER</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | DB SERVICE IMMOBILIER</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header"><div class="brand"><a href="index.html"><img src="images/logo.svg" alt="DB"></a></div>
-    <nav class="main-nav"><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="proprietes.html">Propriétés</a><a href="carte.html">Carte</a><a href="contact.html">Contact</a></nav>
-    <button id="nav-toggle" class="nav-toggle">☰</button>
-  </header>
-  <main class="container">
-    <h1>Contactez-nous</h1>
-    <form id="contact-form">
-      <input name="name" placeholder="Nom" required>
-      <input name="email" type="email" placeholder="Email" required>
-      <input name="phone" placeholder="Téléphone">
-      <textarea name="message" placeholder="Votre message" required></textarea>
-      <button class="btn primary" type="submit">Envoyer</button>
-    </form>
-    <div id="contact-result" aria-live="polite"></div>
-  </main>
-  <footer class="site-footer"><div class="container">© DB SERVICE IMMOBILIER</div></footer>
-  <script src="js/main.js"></script>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">🏢 DB SERVICE IMMOBILIER</a>
+            </div>
+            <button class="nav-toggle">☰</button>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="proprietes.html">Propriétés</a>
+                <a href="services.html">Services</a>
+                <a href="geometre.html">Géomètre</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section style="max-width: 800px;">
+            <h1>Nous contacter</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Avez une question ? Nous sommes là pour vous aider</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h3 style="color: #0066cc; margin-bottom: 1rem;">📍 Adresse</h3>
+                    <p>Abidjan, Côte d'Ivoire</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h3 style="color: #0066cc; margin-bottom: 1rem;">📞 Téléphone</h3>
+                    <p>+225 XX XX XX XX</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h3 style="color: #0066cc; margin-bottom: 1rem;">✉️ Email</h3>
+                    <p>contact@dbserviceimmobilier.ci</p>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <h3 style="color: #0066cc; margin-bottom: 1rem;">⏰ Horaires</h3>
+                    <p>Lun-Ven: 8h00-17h00<br>Sam: 9h00-13h00</p>
+                </div>
+            </div>
+
+            <form id="contactForm" style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h2>Formulaire de contact</h2>
+                
+                <div class="form-group">
+                    <label for="name">Nom complet *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Sujet *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="immobilier">Immobilier</option>
+                        <option value="geometre">Géomètre</option>
+                        <option value="comptabilite">Comptabilité</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer le message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DB SERVICE IMMOBILIER</h3>
+                <p>À votre service pour vos besoins immobiliers.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 Abidjan, Côte d'Ivoire</p>
+                <p>📞 +225 XX XX XX XX</p>
+                <p>✉️ contact@dbserviceimmobilier.ci</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens</h3>
+                <a href="index.html">Accueil</a>
+                <a href="proprietes.html">Propriétés</a>
+                <a href="services.html">Services</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

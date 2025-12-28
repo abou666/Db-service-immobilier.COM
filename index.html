@@ -1,28 +1,182 @@
-﻿<!DOCTYPE html>
-<html lang='fr'>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>DB SERVICE IMMOBILIER</title>
-    <link rel='stylesheet' href='css/style.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB SERVICE IMMOBILIER | Immobilier, Géomatique, Comptabilité</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <a href='index.html'>Accueil</a>
-            <a href='services.html'>Services</a>
-            <a href='proprietes.html'>Propriétés</a>
-            <a href='contact.html'>Contact</a>
-        </nav>
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">🏢 DB SERVICE IMMOBILIER</a>
+            </div>
+            <button class="nav-toggle">☰</button>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="proprietes.html">Propriétés</a>
+                <a href="services.html">Services</a>
+                <a href="geometre.html">Géomètre</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <h1>DB SERVICE IMMOBILIER</h1>
-        <p>Bienvenue. Nous offrons des services en immobilier, géomatique et comptabilité.</p>
-        <a href='contact.html' class='btn'>Nous contacter</a>
+        <!-- SLIDER -->
+        <section class="slider">
+            <div class="slide active" style="background: linear-gradient(135deg, #0066cc 0%, #004999 100%);">
+                <div class="slide-content">
+                    <h2>Immobilier de qualité</h2>
+                    <p>Trouvez votre propriété idéale en Côte d'Ivoire</p>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #00a86b 0%, #008c4d 100%);">
+                <div class="slide-content">
+                    <h2>Services de géomatique</h2>
+                    <p>Plans, cartographie et localisation géographique</p>
+                </div>
+            </div>
+            <div class="slide" style="background: linear-gradient(135deg, #ff6b35 0%, #d63f16 100%);">
+                <div class="slide-content">
+                    <h2>Expertise comptable</h2>
+                    <p>Gestion financière et comptable professionnelle</p>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <span class="slider-dot active"></span>
+                <span class="slider-dot"></span>
+                <span class="slider-dot"></span>
+            </div>
+        </section>
+
+        <!-- À PROPOS -->
+        <section id="about">
+            <h2>À propos de DB SERVICE IMMOBILIER</h2>
+            <p style="text-align: center; margin: 1rem 0; color: #666;">
+                Depuis plus de 10 ans, nous accompagnons nos clients dans leurs projets immobiliers, géomatiques et comptables.
+                Notre équipe de professionnels expérimentés vous garantit un service de qualité et une expertise reconnue.
+            </p>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3>Immobilier</h3>
+                    <p>Achat, vente, location de propriétés résidentielles et commerciales. Conseils d'experts pour trouver le bien idéal.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📍</div>
+                    <h3>Géomatique</h3>
+                    <p>Services de cartographie, localisation GPS, plans d'aménagement et analyses géographiques professionnelles.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3>Comptabilité</h3>
+                    <p>Gestion comptable complète, audit financier, conseils fiscaux pour particuliers et entreprises.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPRIÉTÉS EN VEDETTE -->
+        <section id="featured-properties">
+            <h2>Propriétés en vedette</h2>
+            <div class="property-grid">
+                <div class="property-card">
+                    <div class="property-image">🏡</div>
+                    <div class="property-info">
+                        <h3>Villa résidentielle moderne</h3>
+                        <p>Abidjan - Cocody</p>
+                        <p style="color: #666; font-size: 0.9rem;">4 chambres • 3 SDB • 250 m²</p>
+                        <div class="property-price">25 000 000 FCFA</div>
+                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-image">🏢</div>
+                    <div class="property-info">
+                        <h3>Terrain commercial urbain</h3>
+                        <p>Abidjan - Plateau</p>
+                        <p style="color: #666; font-size: 0.9rem;">500 m² • Zone A • Bien situé</p>
+                        <div class="property-price">15 000 000 FCFA</div>
+                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-image">🏗️</div>
+                    <div class="property-info">
+                        <h3>Immeuble d'appartements</h3>
+                        <p>Abidjan - Marcory</p>
+                        <p style="color: #666; font-size: 0.9rem;">6 appartements • Rentable • Sécurisé</p>
+                        <div class="property-price">45 000 000 FCFA</div>
+                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="proprietes.html" class="btn">Voir toutes les propriétés</a>
+            </div>
+        </section>
+
+        <!-- TÉMOIGNAGES -->
+        <section id="testimonials">
+            <h2>Témoignages de nos clients</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p>"DB Service m'a aidé à trouver ma maison de rêve. Service professionnel et rapide."</p>
+                    <h3>— Marie Kouamé</h3>
+                </div>
+                <div class="card">
+                    <p>"Excellente expertise en géomatique. Les plans fournis sont très détaillés et précis."</p>
+                    <h3>— Ahmed Traoré</h3>
+                </div>
+                <div class="card">
+                    <p>"Équipe comptable très compétente. Ils ont optimisé ma fiscalité efficacement."</p>
+                    <h3>— Jean Coulibaly</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPEL À L'ACTION -->
+        <section style="text-align: center; padding: 3rem 0; background: linear-gradient(135deg, #0066cc 0%, #004999 100%); color: white; margin: 0 -2rem; padding: 3rem 2rem;">
+            <h2 style="color: white; margin-bottom: 1rem;">Vous avez un projet immobilier ?</h2>
+            <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">Contactez-nous dès aujourd'hui pour discuter de vos besoins</p>
+            <a href="contact.html" class="btn">Nous contacter</a>
+        </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 DB SERVICE IMMOBILIER</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DB SERVICE IMMOBILIER</h3>
+                <p>Votre partenaire de confiance pour l'immobilier, la géomatique et la comptabilité.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 Abidjan, Côte d'Ivoire</p>
+                <p>📞 +225 XX XX XX XX</p>
+                <p>✉️ contact@dbserviceimmobilier.ci</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <a href="proprietes.html">Propriétés</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="geometre.html">Géomètre</a>
+            </div>
+            <div class="footer-section">
+                <h3>Réseaux sociaux</h3>
+                <div class="social-icons">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="WhatsApp">W</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.</p>
+        </div>
     </footer>
-    <script src='js/main.js'></script>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

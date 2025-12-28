@@ -1,0 +1,16 @@
+title: DB SERVICE IMMOBILIER
+description: Votre partenaire immobilier de confiance
+theme: null
+baseurl: /Db-service-immobilier.COM
+url: https://abou666.github.io
+markdown: kramdown
+plugins: []
+exclude:
+  - .github
+  - backend
+  - desktop
+  - database
+  - mobile
+  - logo
+  - PostgreSQL
+  - "Nouveau dossier"

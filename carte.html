@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Paiement — DB SERVICE IMMOBILIER</title>
+  <title>Carte — DB SERVICE IMMOBILIER</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 </head>
 <body>
   <header class="site-header"><div class="brand"><a href="index.html"><img src="images/logo.svg" alt="DB"></a></div>
@@ -11,17 +12,11 @@
     <button id="nav-toggle" class="nav-toggle">☰</button>
   </header>
   <main class="container">
-    <h1>Paiement</h1>
-    <form id="payment-form">
-      <input name="fullname" placeholder="Nom complet" required>
-      <input name="card" placeholder="Numéro de carte" required>
-      <input name="expiry" placeholder="MM/AA" required>
-      <input name="cvc" placeholder="CVC" required>
-      <button class="btn primary" type="submit">Payer</button>
-    </form>
-    <div id="pay-result" aria-live="polite"></div>
+    <h1>Carte interactive</h1>
+    <div id="map" style="height:520px;border-radius:8px;overflow:hidden"></div>
   </main>
   <footer class="site-footer"><div class="container">© DB SERVICE IMMOBILIER</div></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

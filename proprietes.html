@@ -1,20 +1,125 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Propriétés — DB SERVICE IMMOBILIER</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propriétés | DB SERVICE IMMOBILIER</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header"><div class="brand"><a href="index.html"><img src="images/logo.svg" alt="DB"></a></div>
-    <nav class="main-nav"><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="proprietes.html">Propriétés</a><a href="carte.html">Carte</a><a href="contact.html">Contact</a></nav>
-    <button id="nav-toggle" class="nav-toggle">☰</button>
-  </header>
-  <main class="container">
-    <h1>Liste des terrains</h1>
-    <div id="properties-list" class="cards"></div>
-  </main>
-  <footer class="site-footer"><div class="container">© DB SERVICE IMMOBILIER</div></footer>
-  <script src="js/main.js"></script>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">🏢 DB SERVICE IMMOBILIER</a>
+            </div>
+            <button class="nav-toggle">☰</button>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="proprietes.html">Propriétés</a>
+                <a href="services.html">Services</a>
+                <a href="geometre.html">Géomètre</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section style="padding: 2rem 0;">
+            <h1>Nos Propriétés à vendre</h1>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Découvrez notre sélection de propriétés de qualité en Côte d'Ivoire</p>
+
+            <!-- Filtres -->
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <button class="btn filter-btn active" data-filter="all">Tous</button>
+                <button class="btn filter-btn" data-filter="residential">Résidentiel</button>
+                <button class="btn filter-btn" data-filter="commercial">Commercial</button>
+                <button class="btn filter-btn" data-filter="terrain">Terrain</button>
+            </div>
+
+            <!-- Propriétés -->
+            <div class="property-grid">
+                <div class="property-card" data-category="residential">
+                    <div class="property-image">🏡</div>
+                    <div class="property-info">
+                        <h3>Villa moderne Cocody</h3>
+                        <p>Abidjan - Cocody</p>
+                        <p style="color: #666; font-size: 0.9rem;">4 chambres • 3 SDB • 250 m² • Climatisée</p>
+                        <div class="property-price">25 000 000 FCFA</div>
+                    </div>
+                </div>
+                <div class="property-card" data-category="commercial">
+                    <div class="property-image">🏢</div>
+                    <div class="property-info">
+                        <h3>Immeuble de bureaux</h3>
+                        <p>Abidjan - Plateau</p>
+                        <p style="color: #666; font-size: 0.9rem;">5 étages • 1000 m² • Bien situé</p>
+                        <div class="property-price">75 000 000 FCFA</div>
+                    </div>
+                </div>
+                <div class="property-card" data-category="terrain">
+                    <div class="property-image">📍</div>
+                    <div class="property-info">
+                        <h3>Terrain commercial</h3>
+                        <p>Abidjan - Port-Bouët</p>
+                        <p style="color: #666; font-size: 0.9rem;">500 m² • Zone A • Viabilisé</p>
+                        <div class="property-price">15 000 000 FCFA</div>
+                    </div>
+                </div>
+                <div class="property-card" data-category="residential">
+                    <div class="property-image">🏗️</div>
+                    <div class="property-info">
+                        <h3>Résidence fermée</h3>
+                        <p>Abidjan - Marcory</p>
+                        <p style="color: #666; font-size: 0.9rem;">6 appartements • Sécurisée • Parking</p>
+                        <div class="property-price">45 000 000 FCFA</div>
+                    </div>
+                </div>
+                <div class="property-card" data-category="residential">
+                    <div class="property-image">🏠</div>
+                    <div class="property-info">
+                        <h3>Maison avec cour</h3>
+                        <p>Abidjan - Yopougon</p>
+                        <p style="color: #666; font-size: 0.9rem;">3 chambres • 2 SDB • Cour spacieuse</p>
+                        <div class="property-price">12 000 000 FCFA</div>
+                    </div>
+                </div>
+                <div class="property-card" data-category="commercial">
+                    <div class="property-image">🛍️</div>
+                    <div class="property-info">
+                        <h3>Local commercial</h3>
+                        <p>Abidjan - Treichville</p>
+                        <p style="color: #666; font-size: 0.9rem;">300 m² • Grand passage • Idéal magasin</p>
+                        <div class="property-price">8 000 000 FCFA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DB SERVICE IMMOBILIER</h3>
+                <p>Votre partenaire de confiance pour l'immobilier.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📍 Abidjan, Côte d'Ivoire</p>
+                <p>📞 +225 XX XX XX XX</p>
+                <p>✉️ contact@dbserviceimmobilier.ci</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens</h3>
+                <a href="index.html">Accueil</a>
+                <a href="contact.html">Contact</a>
+                <a href="services.html">Services</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
