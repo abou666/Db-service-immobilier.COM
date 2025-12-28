@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement en ligne - DB SERVICE IMMOBILIER</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <h1>💳 Paiement en ligne</h1>
+          <p>Sécurisé & Multi-méthodes</p>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="proprietes.html">Propriétés</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="geometre.html">Géomètre</a></li>
+            <li><a href="paiement.html" class="active">Paiement</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main style="max-width:600px;margin:40px auto 60px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 2px 12px #0001;">
+    <h2 style="color:#0b6623;">Régler votre transaction</h2>
+    <form id="payment-form" style="margin-top:32px;">
+      <label>Montant à payer (FCFA) :</label>
+      <input type="number" min="1000" step="100" required placeholder="Ex: 50000" style="width:100%;margin-bottom:18px;">
+      <label>Méthode de paiement :</label>
+      <select required style="width:100%;margin-bottom:18px;">
+        <option value="">Choisir...</option>
+        <option value="mobile">Mobile Money (Orange, MTN, Moov)</option>
+        <option value="carte">Carte bancaire (Visa, Mastercard)</option>
+      </select>
+      <div id="mobile-fields" style="display:none;">
+        <label>Numéro Mobile Money :</label>
+        <input type="tel" pattern="[0-9]{8,15}" placeholder="Numéro mobile" style="width:100%;margin-bottom:18px;">
+      </div>
+      <div id="carte-fields" style="display:none;">
+        <label>Numéro de carte :</label>
+        <input type="text" pattern="[0-9]{16}" maxlength="16" placeholder="Numéro carte" style="width:100%;margin-bottom:8px;">
+        <label>Expiration :</label>
+        <input type="text" pattern="[0-9]{2}/[0-9]{2}" maxlength="5" placeholder="MM/AA" style="width:100%;margin-bottom:8px;">
+        <label>CVV :</label>
+        <input type="text" pattern="[0-9]{3,4}" maxlength="4" placeholder="CVV" style="width:100%;margin-bottom:18px;">
+      </div>
+      <button type="submit" class="btn-main" style="width:100%;margin-top:12px;">Payer</button>
+    </form>
+    <div id="payment-result" style="margin-top:24px;"></div>
+  </main>
+  <footer style="background: var(--primary-color); color: white; padding: 40px 20px 20px; margin-top: 40px; text-align:center;">
+    &copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.
+  </footer>
+  <script>
+    // Affichage dynamique des champs selon la méthode
+    const select = document.querySelector('select');
+    const mobileFields = document.getElementById('mobile-fields');
+    const carteFields = document.getElementById('carte-fields');
+    select.onchange = function() {
+      mobileFields.style.display = select.value==='mobile' ? 'block' : 'none';
+      carteFields.style.display = select.value==='carte' ? 'block' : 'none';
+    };
+    // Simulation paiement
+    document.getElementById('payment-form').onsubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('payment-result').innerHTML = '<span style="color:green;">Paiement simulé avec succès ! (Connectez à une API réelle pour production)</span>';
+    };
+  </script>
+  <script src="frontend/db-assistant.js"></script>
+</body>
+</html>
