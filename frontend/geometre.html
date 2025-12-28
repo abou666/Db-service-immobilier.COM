@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module Géomètre - DB SERVICE IMMOBILIER</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <h1>🗺️ Module Géomètre</h1>
+          <p>Gestion des plans, îlots et lots</p>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="proprietes.html">Propriétés</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="geometre.html" class="active">Géomètre</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main style="max-width:1100px;margin:40px auto 60px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 2px 12px #0001;">
+    <h2 style="color:#0b6623;">Import & Visualisation de Plans</h2>
+    <form id="import-form" style="margin-bottom:32px;">
+      <label for="plan-file">Importer un plan (PDF, DWG, DXF) :</label>
+      <input type="file" id="plan-file" accept=".pdf,.dwg,.dxf" style="margin:12px 0;">
+      <button type="submit" class="btn-main">Importer</button>
+    </form>
+    <div id="plan-preview" style="margin-bottom:32px;"></div>
+    <h3 style="color:#0b6623;">Gestion des îlots et lots</h3>
+    <div style="display:flex;gap:32px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:260px;">
+        <h4>Îlots</h4>
+        <ul id="ilot-list"></ul>
+        <button onclick="addIlot()" class="btn-main" style="margin-top:8px;">Ajouter un îlot</button>
+      </div>
+      <div style="flex:1;min-width:260px;">
+        <h4>Lots</h4>
+        <ul id="lot-list"></ul>
+        <button onclick="addLot()" class="btn-main" style="margin-top:8px;">Ajouter un lot</button>
+      </div>
+    </div>
+    <h3 style="color:#0b6623;margin-top:38px;">Carte SIG (Leaflet)</h3>
+    <div id="map" style="height:400px;width:100%;border-radius:16px;box-shadow:0 2px 12px #0b662320;"></div>
+  </main>
+  <footer style="background: var(--primary-color); color: white; padding: 40px 20px 20px; margin-top: 40px; text-align:center;">
+    &copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    // Import de plans (simulation PDF/DWG/DXF)
+    document.getElementById('import-form').onsubmit = function(e) {
+      e.preventDefault();
+      const file = document.getElementById('plan-file').files[0];
+      const preview = document.getElementById('plan-preview');
+      if (!file) { preview.innerHTML = '<span style="color:red;">Aucun fichier sélectionné.</span>'; return; }
+      preview.innerHTML = `<b>Fichier importé :</b> ${file.name} <span style='color:green;'>(simulation)</span>`;
+    };
+    // Gestion îlots/lots (simulation)
+    let ilots = ['Îlot A', 'Îlot B'];
+    let lots = ['Lot 1', 'Lot 2'];
+    function renderIlots() {
+      document.getElementById('ilot-list').innerHTML = ilots.map(i => `<li>${i}</li>`).join('');
+    }
+    function renderLots() {
+      document.getElementById('lot-list').innerHTML = lots.map(l => `<li>${l}</li>`).join('');
+    }
+    function addIlot() {
+      const nom = prompt('Nom de l’îlot ?');
+      if (nom) { ilots.push(nom); renderIlots(); }
+    }
+    function addLot() {
+      const nom = prompt('Nom du lot ?');
+      if (nom) { lots.push(nom); renderLots(); }
+    }
+    renderIlots(); renderLots();
+    // Carte SIG
+    var map = L.map('map').setView([5.800, -6.650], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+    // Exemple de polygone (simulation d’îlot)
+    var polygon = L.polygon([
+      [5.85, -6.7], [5.90, -6.6], [5.80, -6.5], [5.75, -6.6]
+    ], {color: '#0b6623'}).addTo(map).bindPopup('Îlot A (simulation)');
+  </script>
+</body>
+</html>

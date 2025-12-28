@@ -189,10 +189,11 @@
         </div>
     </div>
     <hr>
-    <div class="row">
-        <div class="col-md-6">
-            <h5 class="mt-3">🎯 Activités principales</h5>
-            <ul>
+            <li><a href="index.html" class="active">Accueil</a></li>
+            <li><a href="proprietes.html">Propriétés</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="geometre.html">Géomètre</a></li>
+            <li><a href="contact.html">Contact</a></li>
                 <li><b>🏠 Immobilier</b> : Achat et vente de terrains, mise en relation vendeur/acheteur, gestion de biens, conseil foncier, promotion immobilière</li>
                 <li><b>🗺️ Géomètre & Géomatique</b> : Levés topographiques, bornage, lotissement, gestion d’îlots/lots/parcelles/plans, exploitation de fichiers (DWG, DXF, PDF, Word, Excel)</li>
                 <li><b>💰 Comptabilité immobilière</b> : Suivi des ventes, gestion des paiements, génération de factures/reçus/rapports, paiement en ligne (Mobile Money, carte, virement)</li>
@@ -327,6 +328,50 @@
                 <p>Un espace client pour gérer vos transactions en toute sécurité.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- Carrousel Témoignages Clients -->
+<section id="temoignages" class="container py-5">
+    <h2 class="text-center mb-4">Témoignages de nos clients</h2>
+    <div id="carouselTemoignages" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3" alt="Client 1" style="width:80px;height:80px;object-fit:cover;">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-2">"Service rapide, équipe très professionnelle. J’ai trouvé mon terrain en moins d’une semaine !"</p>
+                        <footer class="blockquote-footer">M. Kouadio, Abidjan</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle mb-3" alt="Client 2" style="width:80px;height:80px;object-fit:cover;">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-2">"La carte interactive SIG m’a permis de visualiser toutes les offres facilement. Je recommande !"</p>
+                        <footer class="blockquote-footer">Mme Traoré, Duékoué</footer>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" class="rounded-circle mb-3" alt="Client 3" style="width:80px;height:80px;object-fit:cover;">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-2">"Excellent accompagnement pour mon projet immobilier. Merci à toute l’équipe DB Service !"</p>
+                        <footer class="blockquote-footer">M. Yao, Bouaké</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTemoignages" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Précédent</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTemoignages" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Suivant</span>
+        </button>
     </div>
 </section>
 
@@ -476,5 +521,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
+</body>
+    <script src="frontend/db-assistant.js"></script>
 </body>
 </html>
