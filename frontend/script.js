@@ -9,7 +9,9 @@ const properties = [
     area: 85,
     rooms: 3,
     image: '🏢',
-    description: 'Bel appartement au cœur de Paris avec vue dégagée'
+    description: 'Bel appartement au cœur de Paris avec vue dégagée',
+    lat: 5.350,
+    lng: -4.016
   },
   {
     id: 2,
@@ -20,7 +22,9 @@ const properties = [
     area: 120,
     rooms: 4,
     image: '🏡',
-    description: 'Grande maison parfaite pour une famille'
+    description: 'Grande maison parfaite pour une famille',
+    lat: 6.870,
+    lng: -6.690
   },
   {
     id: 3,
@@ -42,7 +46,9 @@ const properties = [
     area: 250,
     rooms: 5,
     image: '🏰',
-    description: 'Magnifique villa avec piscine et jardin privé'
+    description: 'Magnifique villa avec piscine et jardin privé',
+    lat: 7.540,
+    lng: -5.550
   },
   {
     id: 5,
@@ -126,6 +132,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== CHARGER LES PROPRIÉTÉS EN VEDETTE =====
+
+// Affichage dynamique des propriétés sur la carte Leaflet (si présente)
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.getElementById('map') && typeof L !== 'undefined') {
+    var map = L.map('map').setView([5.800, -6.650], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+    properties.forEach(function(prop) {
+      if (prop.lat && prop.lng) {
+        L.marker([prop.lat, prop.lng]).addTo(map).bindPopup('<b>' + prop.name + '</b><br>' + prop.price.toLocaleString('fr-FR') + ' €');
+      }
+    });
+  }
+});
 function loadFeaturedProperties() {
   const featured = document.getElementById('featured-list');
   if (!featured) return;
@@ -243,21 +265,59 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===== VOIR LES DÉTAILS D'UNE PROPRIÉTÉ =====
 function viewPropertyDetails(propertyId) {
   const prop = properties.find(p => p.id === propertyId);
-  if (prop) {
-    alert(`
-📌 ${prop.name}
-💰 Prix: ${prop.price.toLocaleString('fr-FR')} €
-📍 Localisation: ${prop.location}
-📐 Surface: ${prop.area} m²
-🛏️ Pièces: ${prop.rooms}
-
-${prop.description}
-
-Pour plus d'informations, contactez-nous!
-📞 +33 1 23 45 67 89
-📧 info@dbservices-immobiliers.fr
-    `);
+  if (!prop) return;
+  const modal = document.getElementById('property-modal');
+  const modalBody = document.getElementById('modal-body');
+  if (!modal || !modalBody) return;
+  modalBody.innerHTML = `
+    <h3>${prop.name}</h3>
+    <div class="property-price">${prop.price.toLocaleString('fr-FR')} €</div>
+    <div class="property-details">
+      <p>📍 ${prop.location}</p>
+      <p>📐 ${prop.area} m² | 🛏️ ${prop.rooms} pièce(s)</p>
+      <p style="color: #666; font-size: 0.98rem;">${prop.description}</p>
+    </div>
+    <a href="#" class="btn-download" onclick="downloadPlan(${prop.id});return false;">Télécharger le plan</a>
+    <button class="btn-download" style="margin-left:10px;background:linear-gradient(90deg,#f39c12,#0b6623);" onclick="simulatePurchase(${prop.id});return false;">Simuler l'achat</button>
+    <div style="margin-top:18px;font-size:0.98rem;opacity:0.8;">Pour plus d'informations, contactez-nous !<br>📞 07 06 48 03 89<br>📧 dbservicesimmobiliers225@gmail.com</div>
+  `;
+  // Simulation d'achat
+  function simulatePurchase(propertyId) {
+    const prop = properties.find(p => p.id === propertyId);
+    if (!prop) return;
+    alert('Simulation d’achat pour : ' + prop.name + '\nMontant : ' + prop.price.toLocaleString('fr-FR') + ' €\n\nFonctionnalité à relier à votre système de paiement.');
   }
+  modal.classList.add('show');
+  modal.style.display = 'flex';
+}
+
+// Fermer la modale
+document.addEventListener('DOMContentLoaded', function() {
+  const closeModal = document.getElementById('close-modal');
+  const modal = document.getElementById('property-modal');
+  if (closeModal && modal) {
+    closeModal.onclick = function() {
+      modal.classList.remove('show');
+      modal.style.display = 'none';
+    };
+  }
+  // Fermer en cliquant hors contenu
+  if (modal) {
+    modal.onclick = function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+      }
+    };
+  }
+});
+
+// Simulation téléchargement plan
+function downloadPlan(propertyId) {
+  const prop = properties.find(p => p.id === propertyId);
+  if (!prop) return;
+  alert('Téléchargement du plan pour : ' + prop.name + ' (fonctionnalité à activer avec vos fichiers réels)');
+}
 }
 
 // ===== GESTION DE LA CONNEXION =====

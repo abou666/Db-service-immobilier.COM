@@ -28,6 +28,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nos Propriétés - Db Services Immobiliers</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2H1LG2Q6F2zLkFh2PzefRg2l1r2a2lGG2b9gA6A=" crossorigin=""/>
 </head>
 <body>
   <header>
@@ -90,6 +91,18 @@
       <div class="properties-grid" id="properties-list">
         <p>Chargement des propriétés...</p>
       </div>
+      <!-- Carte interactive -->
+      <div style="margin:40px 0 0 0;">
+        <h2 style="text-align:center;font-size:2rem;color:#0b6623;margin-bottom:18px;">Carte interactive des propriétés</h2>
+        <div id="map" style="height:400px;width:100%;border-radius:16px;box-shadow:0 2px 12px #0b662320;"></div>
+      </div>
+      <!-- Modale détails propriété -->
+      <div id="property-modal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;">
+        <div class="modal-content" style="background:#fff;padding:32px 24px 24px 24px;border-radius:18px;max-width:420px;width:90vw;box-shadow:0 8px 32px #0003;position:relative;">
+          <span id="close-modal" style="position:absolute;top:12px;right:18px;font-size:2rem;cursor:pointer;color:#0b6623;font-weight:bold;">&times;</span>
+          <div id="modal-body"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -119,5 +132,28 @@
   </footer>
 
   <script src="script.js"></script>
+</body>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1jRVv6G8z1p3p1U9Q+1Q1l1r2a2lGG2b9gA6A=" crossorigin=""></script>
+<script>
+// --- Affichage carte interactive avec Leaflet ---
+document.addEventListener('DOMContentLoaded', function() {
+  if(document.getElementById('map')) {
+    var map = L.map('map').setView([5.800, -6.650], 6); // Centre Côte d'Ivoire
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+    // Données fictives, à relier à vos propriétés réelles
+    var biens = [
+      { nom: 'Appartement Luxe Centre-Ville', lat: 5.350, lng: -4.016 },
+      { nom: 'Maison Familiale avec Jardin', lat: 6.870, lng: -6.690 },
+      { nom: 'Villa Moderne avec Vue Mer', lat: 7.540, lng: -5.550 }
+    ];
+    biens.forEach(function(bien) {
+      L.marker([bien.lat, bien.lng]).addTo(map).bindPopup('<b>'+bien.nom+'</b>');
+    });
+  }
+});
+</script>
 </body>
 </html>
