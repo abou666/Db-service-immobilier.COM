@@ -37,6 +37,470 @@
     </style>
 </head>
 <body>
-<!-- ...existing code... -->
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#accueil"><i class="fas fa-home me-2"></i>DB SERVICE IMMOBILIER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#services" data-bs-toggle="dropdown">Services</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#lotissement">Lotissement</a></li>
+                        <li><a class="dropdown-item" href="#construction">Construction</a></li>
+                        <li><a class="dropdown-item" href="#vente">Vente terrains & maisons</a></li>
+                        <li><a class="dropdown-item" href="#renovation">Rénovation</a></li>
+                        <li><a class="dropdown-item" href="#suivi">Suivi administratif</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#offres">Offres</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Slider -->
+<section id="accueil" class="hero-slider">
+    <div id="heroCarousel" class="carousel slide carousel-fade h-100 w-100" data-bs-ride="carousel">
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100 d-flex align-items-center" style="background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920') center/cover;">
+                <div class="container text-center text-white">
+                    <h1 class="display-4 fw-bold mb-4">Votre partenaire immobilier de confiance</h1>
+                    <p class="lead mb-4">Du rural à l'urbain, nous réalisons vos rêves immobiliers en Côte d'Ivoire</p>
+                    <div><a href="#contact" class="btn btn-primary btn-lg me-3">Contactez-nous</a><a href="#offres" class="btn btn-outline-light btn-lg">Voir nos offres</a></div>
+                </div>
+            </div>
+            <div class="carousel-item h-100 d-flex align-items-center" style="background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1920') center/cover;">
+                <div class="container text-center text-white">
+                    <h1 class="display-4 fw-bold mb-4">Constructions de standing</h1>
+                    <p class="lead mb-4">Avec nos architectes compétents, créez votre cadre idéal</p>
+                    <div><a href="#services" class="btn btn-primary btn-lg">Nos services</a></div>
+                </div>
+            </div>
+            <div class="carousel-item h-100 d-flex align-items-center" style="background: url('https://images.unsplash.com/photo-1560502930-a59fd6b345cb?w=1920') center/cover;">
+                <div class="container text-center text-white">
+                    <h1 class="display-4 fw-bold mb-4">Terrains disponibles partout</h1>
+                    <p class="lead mb-4">Acquisition facilitée avec notre équipe commerciale dynamique</p>
+                    <div><a href="#offres" class="btn btn-primary btn-lg">Découvrir</a></div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+    </div>
+</section>
+
+<!-- Présentation Entreprise -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4">DB SERVICE IMMOBILIER</h2>
+                <p class="lead mb-4">Assurer les conditions d'exploitation des propriétés rurales, agricoles ou forestières. Création de cadre idéal de vie de commodités de standing. Du domaine rural au domaine urbain sur toute l'étendue du territoire Ivoirien.[page:0][attached_file:1]</p>
+                <a href="#apropos" class="btn btn-primary btn-lg">En savoir plus</a>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1548834577-9081f7c95744?w=600" class="img-fluid rounded shadow" alt="Équipe DB Service Immobilier">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quoi de neuf ? -->
+<section id="quoi-de-neuf" class="py-5">
+    <div class="container">
+        <h2 class="text-center display-6 fw-bold mb-5">Quoi de neuf ?</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 property-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400" class="card-img-top" alt="Terrain Abidjan">
+                    <div class="card-body">
+                        <h5 class="card-title">Terrain 500m² Abidjan Cocody</h5>
+                        <p class="card-text">Parcelle viabilisée, titre foncier disponible. Prix: 35M FCFA</p>
+                        <a href="#" class="btn btn-success me-2" onclick="reserver('terrain-cocody')">Réserver</a>
+                        <a href="#" class="btn btn-primary">Détails</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 property-card">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400" class="card-img-top" alt="Villa moderne">
+                    <div class="card-body">
+                        <h5 class="card-title">Villa 4 chambres Riviera</h5>
+                        <p class="card-text">Neuve, piscine, garage. Prix: 180M FCFA</p>
+                        <a href="#" class="btn btn-success me-2" onclick="reserver('villa-riviera')">Acheter</a>
+                        <a href="#" class="btn btn-primary">Visite virtuelle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 property-card">
+                    <img src="https://images.unsplash.com/photo-1560502930-a59fd6b345cb?w=400" class="card-img-top" alt="Lotissement">
+                    <div class="card-body">
+                        <h5 class="card-title">Lotissement Yamoussoukro</h5>
+                        <p class="card-text">50 parcelles disponibles dès maintenant. À partir de 15M FCFA</p>
+                        <a href="#" class="btn btn-success me-2" onclick="reserver('lotissement-ymsk')">Réserver</a>
+                        <a href="#" class="btn btn-primary">Carte interactive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center display-6 fw-bold mb-5">Nos Services</h2>
+        <div class="row g-4">
+            <div class="col-md-4" id="lotissement">
+                <div class="card service-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-map-marked-alt fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Lotissement</h5>
+                        <p class="card-text">Développement de lotissements viabilisés avec infrastructures complètes dans tout le territoire ivoirien.</p>
+                        <a href="#contact" class="btn btn-primary">Contactez-nous</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="construction">
+                <div class="card service-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-hammer fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Construction</h5>
+                        <p class="card-text">Constructions de standing en partenariat avec des architectes compétents. De la conception à la réalisation.</p>
+                        <a href="#contact" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="vente">
+                <div class="card service-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-home fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Vente terrains & maisons</h5>
+                        <p class="card-text">Large choix de terrains et maisons avec accompagnement dans l'acquisition du titre de propriété.</p>
+                        <a href="#offres" class="btn btn-primary">Voir offres</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="renovation">
+                <div class="card service-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-tools fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Rénovation</h5>
+                        <p class="card-text">Travaux de rénovation complète ou partielle pour redonner vie à vos biens immobiliers.</p>
+                        <a href="#contact" class="btn btn-primary">Devis gratuit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" id="suivi">
+                <div class="card service-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="fas fa-file-contract fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Suivi administratif</h5>
+                        <p class="card-text">Accompagnement complet pour tous les documents administratifs et titres fonciers.</p>
+                        <a href="#contact" class="btn btn-primary">Nous consulter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- À propos -->
+<section id="apropos" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-6 fw-bold mb-4">À propos de DB SERVICE IMMOBILIER</h2>
+                <p class="lead mb-5">Conscient de l'importance de l'acquisition d'un titre de propriété, nous avons une équipe de commerciaux dynamiques qui vous accompagnent dans vos demandes. Autant passionnante que la construction, nous nous adaptons à vos volontés ![page:0][attached_file:1]</p>
+                <div class="row g-4">
+                    <div class="col-md-4"><div class="p-4 bg-primary text-white rounded"><i class="fas fa-users fa-2x mb-2 d-block"></i><h5>Équipe expérimentée</h5></div></div>
+                    <div class="col-md-4"><div class="p-4 bg-primary text-white rounded"><i class="fas fa-shield-alt fa-2x mb-2 d-block"></i><h5>Fiabilité garantie</h5></div></div>
+                    <div class="col-md-4"><div class="p-4 bg-primary text-white rounded"><i class="fas fa-map-marker-alt fa-2x mb-2 d-block"></i><h5>Côte d'Ivoire entière</h5></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Module Offres avec carte -->
+<section id="offres" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center display-6 fw-bold mb-5">Nos Offres Immobilières</h2>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="property-card card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500" class="card-img-top" alt="Terrain premium">
+                    <div class="card-body">
+                        <h5>Terrain Premium Cocody</h5>
+                        <p>800m² viabilisé • 50M FCFA</p>
+                        <button class="btn btn-success w-100 mb-2" onclick="acheter('cocody-premium')">Acheter maintenant</button>
+                        <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#modalMap">Voir sur carte</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="property-card card">
+                    <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500" class="card-img-top" alt="Appartement">
+                    <div class="card-body">
+                        <h5>Appartement F3 Angré</h5>
+                        <p>Neuf • Meublé • 75M FCFA</p>
+                        <button class="btn btn-success w-100 mb-2" onclick="reserver('angre-f3')">Réserver</button>
+                        <button class="btn btn-outline-primary w-100">Visiter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carte interactive -->
+        <div class="row">
+            <div class="col-12">
+                <h4>Localisation de nos biens</h4>
+                <div id="map" style="height: 400px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal carte -->
+<div class="modal fade" id="modalMap" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Localisation précise</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="detailMap" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <h2 class="display-6 fw-bold mb-4">Contactez-nous</h2>
+                <form id="contactForm">
+                    <div class="mb-3">
+                        <label class="form-label">Nom complet</label>
+                        <input type="text" class="form-control" name="name" required>
+                        <div id="errorname" class="text-danger small"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" required>
+                        <div id="erroremail" class="text-danger small"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Téléphone</label>
+                        <input type="tel" class="form-control" name="phone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Envoyer le message</button>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-map-marker-alt fa-3x text-primary mb-3"></i>
+                        <h5>Abidjan, Côte d'Ivoire</h5>
+                        <p class="text-muted">Du rural à l'urbain, nous intervenons partout</p>
+                        <div class="mt-4">
+                            <a href="https://wa.me/22501010101" class="btn btn-success me-2 mb-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                            <a href="#" class="btn btn-primary me-2 mb-2"><i class="fab fa-phone"></i> +225 01 01 01 01</a>
+                            <a href="mailto:contact@dbserviceimmobilier.ci" class="btn btn-outline-primary mb-2"><i class="fas fa-envelope"></i> Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Chat IA LIA -->
+<div class="chat-toggle" id="chatToggle" title="Assistance LIA">
+    <i class="fas fa-comments"></i>
+</div>
+<div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+        <i class="fas fa-robot me-2"></i>Assistance LIA - Comment puis-je vous aider ?
+        <button class="btn-close float-end" id="closeChat"></button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="p-2 bg-primary text-white rounded mb-2 text-start">Bonjour ! Je suis LIA, votre assistant immobilier virtuel. Posez-moi vos questions sur nos services et offres !</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Tapez votre message...">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>DB SERVICE IMMOBILIER</h5>
+                <p>Votre partenaire de confiance pour tous vos projets immobiliers en Côte d'Ivoire.</p>
+            </div>
+            <div class="col-md-3">
+                <h6>Liens rapides</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#accueil" class="text-light">Accueil</a></li>
+                    <li><a href="#services" class="text-light">Services</a></li>
+                    <li><a href="#offres" class="text-light">Offres</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6>Suivez-nous</h6>
+                <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="#" class="text-light me-3"><i class="fab fa-youtube fa-2x"></i></a>
+                <a href="#" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col-md-6">
+                <small>&copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.</small>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="text-light me-3">Mentions légales</a>
+                <a href="#" class="text-light">Politique de confidentialité</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Formulaire contact validation [web:6]
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (validateForm()) {
+            alert('Message envoyé avec succès ! Nous vous répondrons rapidement.');
+            this.reset();
+        }
+    });
+
+    function validateForm() {
+        let valid = true;
+        const name = document.forms["contactForm"]["name"].value;
+        const email = document.forms["contactForm"]["email"].value;
+        const message = document.forms["contactForm"]["message"].value;
+        
+        if (name == "") {
+            document.getElementById('errorname').innerHTML = "Veuillez entrer un nom valide";
+            valid = false;
+        } else {
+            document.getElementById('errorname').innerHTML = "";
+        }
+        
+        if (email == "") {
+            document.getElementById('erroremail').innerHTML = "Veuillez entrer un email valide";
+            valid = false;
+        } else {
+            document.getElementById('erroremail').innerHTML = "";
+        }
+        
+        if (message == "") {
+            valid = false;
+            alert("Veuillez entrer un message");
+        }
+        return valid;
+    } [web:6]
+
+    // Carte Leaflet [web:5]
+    let map = L.map('map').setView([5.3600, -4.0083], 10); // Abidjan
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Marqueurs biens
+    L.marker([5.3774, -3.9494]).addTo(map).bindPopup('Terrain Cocody - 35M FCFA');
+    L.marker([5.3100, -4.0100]).addTo(map).bindPopup('Villa Riviera - 180M FCFA');
+    L.marker([6.8206, -5.2767]).addTo(map).bindPopup('Lotissement Yamoussoukro');
+
+    // Chat IA LIA [web:7]
+    const chatToggle = document.getElementById('chatToggle');
+    const chatWidget = document.getElementById('chatWidget');
+    const closeChat = document.getElementById('closeChat');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+
+    chatToggle.addEventListener('click', () => {
+        chatWidget.style.display = chatWidget.style.display === 'flex' ? 'none' : 'flex';
+    });
+    closeChat.addEventListener('click', () => {
+        chatWidget.style.display = 'none';
+    });
+
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+        
+        chatMessages.innerHTML += `<div class="p-2 bg-light rounded mb-2 text-end"><strong>Vous:</strong> ${message}</div>`;
+        chatInput.value = '';
+        
+        setTimeout(() => {
+            const responses = {
+                'terrain': 'Nous avons plusieurs terrains disponibles à Abidjan et l\'intérieur. Souhaitez-vous une sélection par budget ?',
+                'villa': 'Nos villas sont neuves avec garanties. Prix à partir de 150M FCFA. Région préférée ?',
+                'service': 'Nos services incluent lotissement, construction, vente et suivi administratif complet.',
+                'prix': 'Nos prix sont compétitifs avec facilités de paiement. Contactez-nous pour un devis personnalisé.',
+                'default': 'Je suis LIA, assistant virtuel de DB Service Immobilier. Je peux vous aider sur nos offres et services !'
+            };
+            
+            let response = 'default';
+            if (message.toLowerCase().includes('terrain')) response = 'terrain';
+            else if (message.toLowerCase().includes('villa') || message.toLowerCase().includes('maison')) response = 'villa';
+            else if (message.toLowerCase().includes('service')) response = 'service';
+            else if (message.toLowerCase().includes('prix')) response = 'prix';
+            
+            chatMessages.innerHTML += `<div class="p-2 bg-primary text-white rounded mb-2 text-start"><strong>LIA:</strong> ${responses[response]}</div>`;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+    }
+
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // Actions achat/réservation (simulation API)
+    function acheter(ref) {
+        alert(`Demande d'achat pour ${ref} envoyée ! Un conseiller vous contacte sous 24h.`);
+        // Ici: Appel API backend réel
+    }
+    function reserver(ref) {
+        alert(`Réservation ${ref} confirmée ! Paiement acompte à effectuer.`);
+        // Ici: Appel API backend réel
+    }
+
+    // Auto-ajust navbar après chargement
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+    });
+</script>
+
 </body>
 </html>
