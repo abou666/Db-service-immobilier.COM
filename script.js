@@ -397,18 +397,18 @@ document.querySelectorAll('.property-card, .service-card, .testimonial-card').fo
 class DBAssistant {
   constructor() {
     this.responses = {
-      salut: "Bonjour! 👋 Je suis DB-Assistant, l'assistant IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider?",
-      hello: "Bonjour! 👋 Je suis DB-Assistant, l'assistant IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider?",
-      terrain: "🏞️ Nous avons plusieurs terrains disponibles. Vous cherchez un terrain pour:\n- Habitation\n- Commerce\n- Agriculture\nQuel type vous intéresse?",
-      prix: "💰 Nos prix varient selon la taille et la localisation:\n- Petits terrains: 50M-150M FCFA\n- Moyens: 150M-300M FCFA\n- Grands: 300M+ FCFA\nVoulez-vous connaître les détails?",
-      paiement: "💳 Nous acceptons:\n- Mobile Money (Orange, MTN, Moov)\n- Carte bancaire (Visa, Mastercard)\n- Virements bancaires\nRendez-vous sur la page Paiement pour effectuer votre transaction.",
-      services: "🏢 Nos services:\n1. Immobilier (achat, vente, gestion)\n2. Géomatique (levés, bornage, SIG)\n3. Comptabilité immobilière\n4. Paiement en ligne\n5. Assistance 24h/24",
-      contact: "📞 Contactez-nous:\n☎️ Service Client: +225 07 06 48 03 89\n☎️ Direction: +225 07 47 29 65 71\n📧 Email: dbservicesimmobiliers225@gmail.com\n📍 Duékoué, Côte d'Ivoire",
-      geometre: "🗺️ Services géomatiques:\n✓ Levés topographiques précis\n✓ Bornage de terrains\n✓ Lotissement et division\n✓ Plans cadastraux\n✓ Exploitation DWG/PDF/Excel",
-      achat: "🏠 Vous cherchez à acheter?\n1. Consultez notre catalogue sur la page Propriétés\n2. Visualisez sur la Carte SIG\n3. Contactez-nous pour plus d'infos\n4. Finalisez via paiement sécurisé",
-      vente: "💵 Vous voulez vendre votre terrain?\n1. Contactez notre équipe\n2. Nous ferons une évaluation gratuite\n3. Publication sur notre plateforme\n4. Mise en relation avec acheteurs potentiels",
-      aide: "🤖 Je peux vous aider avec:\n- Informations sur les propriétés\n- Services offerts\n- Modes de paiement\n- Coordonnées de contact\n- Fonctionnement du site\nQue puis-je faire pour vous?",
-      default: "Je ne suis pas sûr de votre question. Pouvez-vous reformuler? Vous pouvez demander: 'terrain', 'prix', 'paiement', 'services', 'contact', 'aide'"
+      salut: "Bonjour! 👋 Je suis LIA, l’assistante IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider aujourd’hui ?",
+      hello: "Bonjour! 👋 Je suis LIA, l’assistante IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider aujourd’hui ?",
+      terrain: "🏞️ Nous avons plusieurs terrains disponibles ! Pour quel usage cherchez-vous ? <br>- Habitation<br>- Commerce<br>- Agriculture<br><b>Vous pouvez demander une simulation ou voir les offres !</b>",
+      prix: "💰 Nos prix varient selon la taille et la localisation :<br>- Petits terrains : 50M-150M FCFA<br>- Moyens : 150M-300M FCFA<br>- Grands : 300M+ FCFA<br><b>Voulez-vous une estimation personnalisée ?</b>",
+      paiement: "💳 Nous acceptons :<br>- Mobile Money (Orange, MTN, Moov)<br>- Carte bancaire (Visa, Mastercard)<br>- Virements bancaires<br><b>Vous pouvez simuler un paiement ou demander de l’aide !</b>",
+      services: "🏢 Nos services :<br>1. Immobilier (achat, vente, gestion)<br>2. Géomatique (levés, bornage, SIG)<br>3. Comptabilité immobilière<br>4. Paiement en ligne<br>5. Assistance 24h/24<br><b>Voulez-vous plus de détails sur un service ?</b>",
+      contact: "📞 Contactez-nous :<br>☎️ Service Client : +225 07 06 48 03 89<br>☎️ Direction : +225 07 47 29 65 71<br>📧 Email : dbservicesimmobiliers225@gmail.com<br>📍 Duékoué, Côte d’Ivoire",
+      geometre: "🗺️ Services géomatiques :<br>✓ Levés topographiques précis<br>✓ Bornage de terrains<br>✓ Lotissement et division<br>✓ Plans cadastraux<br>✓ Exploitation DWG/PDF/Excel",
+      achat: "🏠 Vous cherchez à acheter ?<br>1. Consultez notre catalogue sur la page Propriétés<br>2. Visualisez sur la Carte SIG<br>3. Contactez-nous pour plus d’infos<br>4. Finalisez via paiement sécurisé",
+      vente: "💵 Vous voulez vendre votre terrain ?<br>1. Contactez notre équipe<br>2. Évaluation gratuite<br>3. Publication sur notre plateforme<br>4. Mise en relation avec acheteurs potentiels",
+      aide: "🤖 Je peux vous aider avec :<br>- Informations sur les propriétés<br>- Services offerts<br>- Modes de paiement<br>- Coordonnées de contact<br>- Fonctionnement du site<br><b>Essayez un des boutons rapides ci-dessous !</b>",
+      default: "Je ne suis pas sûre de votre question. Essayez : <b>terrain</b>, <b>prix</b>, <b>paiement</b>, <b>services</b>, <b>contact</b>, <b>aide</b> ou cliquez sur un bouton rapide."
     };
   }
 
@@ -439,17 +439,22 @@ function initChatbot() {
       right: 20px;
       z-index: 9999;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: chatbot-fadein 0.7s;
+    }
+    @keyframes chatbot-fadein {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .chatbot-button {
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #0b6623 0%, #094d1b 100%);
+      background: var(--accent-color2, #ffb300);
       border: none;
       color: white;
       font-size: 28px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
@@ -457,7 +462,8 @@ function initChatbot() {
     }
     .chatbot-button:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 200, 150, 0.18);
+      background: var(--accent-color, #00c896);
     }
     .chatbot-window {
       position: absolute;
@@ -466,17 +472,18 @@ function initChatbot() {
       width: 350px;
       height: 500px;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+      border-radius: 18px;
+      box-shadow: 0 5px 40px rgba(0, 200, 150, 0.13);
       display: none;
       flex-direction: column;
       overflow: hidden;
+      animation: chatbot-fadein 0.7s;
     }
     .chatbot-window.active {
       display: flex;
     }
     .chatbot-header {
-      background: linear-gradient(135deg, #0b6623 0%, #094d1b 100%);
+      background: var(--primary-color, #1a237e);
       color: white;
       padding: 20px;
       display: flex;
@@ -501,54 +508,80 @@ function initChatbot() {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      background: var(--secondary-color, #f4f8fb);
     }
     .message {
       padding: 10px 15px;
-      border-radius: 8px;
+      border-radius: 10px;
       max-width: 85%;
       word-wrap: break-word;
-      font-size: 0.9rem;
-      line-height: 1.4;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      box-shadow: 0 1px 4px rgba(26,35,126,0.04);
     }
     .message.bot {
       background: #f0f0f0;
       color: #333;
       align-self: flex-start;
+      border-bottom-left-radius: 2px;
     }
     .message.user {
-      background: #0b6623;
+      background: var(--accent-color, #00c896);
       color: white;
       align-self: flex-end;
+      border-bottom-right-radius: 2px;
     }
     .chatbot-input {
       display: flex;
       padding: 15px;
       gap: 10px;
       border-top: 1px solid #eee;
+      background: #fff;
     }
     .chatbot-input input {
       flex: 1;
       border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 10px;
-      font-size: 0.9rem;
+      border-radius: 25px;
+      padding: 10px 18px;
+      font-size: 1rem;
       outline: none;
+      background: #f4f8fb;
     }
     .chatbot-input input:focus {
-      border-color: #0b6623;
+      border-color: var(--accent-color, #00c896);
     }
     .chatbot-input button {
-      background: #0b6623;
+      background: var(--primary-color, #1a237e);
       color: white;
       border: none;
-      border-radius: 6px;
-      padding: 10px 20px;
+      border-radius: 25px;
+      padding: 10px 22px;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 1rem;
       transition: background 0.3s;
     }
     .chatbot-input button:hover {
-      background: #094d1b;
+      background: var(--accent-color, #00c896);
+    }
+    .chatbot-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 20px 0 20px;
+    }
+    .chatbot-quick button {
+      background: var(--accent-color2, #ffb300);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      padding: 6px 16px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-bottom: 6px;
+      transition: background 0.2s;
+    }
+    .chatbot-quick button:hover {
+      background: var(--accent-color, #00c896);
     }
   `;
 
@@ -563,11 +596,19 @@ function initChatbot() {
       <button class="chatbot-button" id="chatbot-toggle">🤖</button>
       <div class="chatbot-window" id="chatbot-window">
         <div class="chatbot-header">
-          <h3>DB-Assistant IA</h3>
+          <h3>LIA – Assistante IA</h3>
           <button class="close-btn" id="chatbot-close">✕</button>
         </div>
         <div class="chatbot-messages" id="chatbot-messages">
-          <div class="message bot">Bonjour! 👋 Je suis DB-Assistant. Comment puis-je vous aider?</div>
+          <div class="message bot">Bonjour! 👋 Je suis LIA, l’assistante IA. Comment puis-je vous aider ?</div>
+        </div>
+        <div class="chatbot-quick" id="chatbot-quick">
+          <button>terrain</button>
+          <button>prix</button>
+          <button>paiement</button>
+          <button>services</button>
+          <button>contact</button>
+          <button>aide</button>
         </div>
         <div class="chatbot-input">
           <input type="text" id="chatbot-input" placeholder="Posez une question..." />
@@ -599,8 +640,8 @@ function initChatbot() {
     window.classList.remove('active');
   });
 
-  const sendMessage = () => {
-    const text = input.value.trim();
+  const sendMessage = (textForce) => {
+    const text = textForce || input.value.trim();
     if (!text) return;
 
     // Ajouter le message utilisateur
@@ -611,12 +652,12 @@ function initChatbot() {
 
     // Obtenir la réponse
     const response = assistant.respond(text);
-    
+
     // Ajouter la réponse du bot (avec délai)
     setTimeout(() => {
       const botMsg = document.createElement('div');
       botMsg.className = 'message bot';
-      botMsg.textContent = response;
+      botMsg.innerHTML = response;
       messages.appendChild(botMsg);
       messages.scrollTop = messages.scrollHeight;
     }, 500);
@@ -625,6 +666,16 @@ function initChatbot() {
     input.value = '';
     messages.scrollTop = messages.scrollHeight;
   };
+
+  // Boutons rapides
+  const quick = document.getElementById('chatbot-quick');
+  if (quick) {
+    quick.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        sendMessage(this.textContent);
+      });
+    });
+  }
 
   send.addEventListener('click', sendMessage);
   input.addEventListener('keypress', (e) => {
