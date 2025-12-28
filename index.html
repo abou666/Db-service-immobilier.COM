@@ -3,180 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DB SERVICE IMMOBILIER | Immobilier, Géomatique, Comptabilité</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>DB SERVICE IMMOBILIER - Votre partenaire immobilier en Côte d'Ivoire</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f8f9fa;
+            --accent-color: #28a745;
+            --text-dark: #333;
+            --text-light: #666;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: var(--text-dark); }
+        .navbar { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+        .navbar-brand { font-weight: 700; font-size: 1.5rem; color: var(--primary-color) !important; }
+        .hero-slider { height: 70vh; background: linear-gradient(135deg, var(--primary-color), #1e3d72); color: white; display: flex; align-items: center; }
+        .service-card { transition: transform 0.3s, box-shadow 0.3s; border: none; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .btn-primary { background: var(--primary-color); border: none; padding: 12px 30px; border-radius: 50px; font-weight: 600; transition: all 0.3s; }
+        .btn-primary:hover { background: #1e3d72; transform: translateY(-2px); }
+        .footer { background: var(--text-dark); color: white; padding: 40px 0 20px; }
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; width: 350px; height: 500px; background: white; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); z-index: 1000; display: none; flex-direction: column; }
+        .chat-header { background: var(--primary-color); color: white; padding: 15px; border-radius: 15px 15px 0 0; font-weight: 600; }
+        .chat-messages { flex: 1; padding: 15px; overflow-y: auto; background: #f8f9fa; }
+        .chat-input { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        .chat-input input { flex: 1; border: 1px solid #ddd; border-radius: 25px; padding: 10px 20px; }
+        .chat-toggle { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 10px 30px rgba(40,167,69,0.4); z-index: 999; font-size: 1.5rem; transition: all 0.3s; }
+        .chat-toggle:hover { transform: scale(1.1); }
+        .property-card { transition: all 0.3s; }
+        .property-card:hover { transform: scale(1.02); }
+        @media (max-width: 768px) { .hero-slider { height: 60vh; } .chat-widget { width: 90vw; right: 5vw; } }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html">🏢 DB SERVICE IMMOBILIER</a>
-            </div>
-            <button class="nav-toggle">☰</button>
-            <nav>
-                <a href="index.html">Accueil</a>
-                <a href="proprietes.html">Propriétés</a>
-                <a href="services.html">Services</a>
-                <a href="geometre.html">Géomètre</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- SLIDER -->
-        <section class="slider">
-            <div class="slide active" style="background: linear-gradient(135deg, #0066cc 0%, #004999 100%);">
-                <div class="slide-content">
-                    <h2>Immobilier de qualité</h2>
-                    <p>Trouvez votre propriété idéale en Côte d'Ivoire</p>
-                </div>
-            </div>
-            <div class="slide" style="background: linear-gradient(135deg, #00a86b 0%, #008c4d 100%);">
-                <div class="slide-content">
-                    <h2>Services de géomatique</h2>
-                    <p>Plans, cartographie et localisation géographique</p>
-                </div>
-            </div>
-            <div class="slide" style="background: linear-gradient(135deg, #ff6b35 0%, #d63f16 100%);">
-                <div class="slide-content">
-                    <h2>Expertise comptable</h2>
-                    <p>Gestion financière et comptable professionnelle</p>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <span class="slider-dot active"></span>
-                <span class="slider-dot"></span>
-                <span class="slider-dot"></span>
-            </div>
-        </section>
-
-        <!-- À PROPOS -->
-        <section id="about">
-            <h2>À propos de DB SERVICE IMMOBILIER</h2>
-            <p style="text-align: center; margin: 1rem 0; color: #666;">
-                Depuis plus de 10 ans, nous accompagnons nos clients dans leurs projets immobiliers, géomatiques et comptables.
-                Notre équipe de professionnels expérimentés vous garantit un service de qualité et une expertise reconnue.
-            </p>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="card-icon">🏠</div>
-                    <h3>Immobilier</h3>
-                    <p>Achat, vente, location de propriétés résidentielles et commerciales. Conseils d'experts pour trouver le bien idéal.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">📍</div>
-                    <h3>Géomatique</h3>
-                    <p>Services de cartographie, localisation GPS, plans d'aménagement et analyses géographiques professionnelles.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💼</div>
-                    <h3>Comptabilité</h3>
-                    <p>Gestion comptable complète, audit financier, conseils fiscaux pour particuliers et entreprises.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROPRIÉTÉS EN VEDETTE -->
-        <section id="featured-properties">
-            <h2>Propriétés en vedette</h2>
-            <div class="property-grid">
-                <div class="property-card">
-                    <div class="property-image">🏡</div>
-                    <div class="property-info">
-                        <h3>Villa résidentielle moderne</h3>
-                        <p>Abidjan - Cocody</p>
-                        <p style="color: #666; font-size: 0.9rem;">4 chambres • 3 SDB • 250 m²</p>
-                        <div class="property-price">25 000 000 FCFA</div>
-                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">🏢</div>
-                    <div class="property-info">
-                        <h3>Terrain commercial urbain</h3>
-                        <p>Abidjan - Plateau</p>
-                        <p style="color: #666; font-size: 0.9rem;">500 m² • Zone A • Bien situé</p>
-                        <div class="property-price">15 000 000 FCFA</div>
-                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">🏗️</div>
-                    <div class="property-info">
-                        <h3>Immeuble d'appartements</h3>
-                        <p>Abidjan - Marcory</p>
-                        <p style="color: #666; font-size: 0.9rem;">6 appartements • Rentable • Sécurisé</p>
-                        <div class="property-price">45 000 000 FCFA</div>
-                        <a href="proprietes.html" class="btn" style="width: 100%; text-align: center;">Voir détails</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="proprietes.html" class="btn">Voir toutes les propriétés</a>
-            </div>
-        </section>
-
-        <!-- TÉMOIGNAGES -->
-        <section id="testimonials">
-            <h2>Témoignages de nos clients</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <p>"DB Service m'a aidé à trouver ma maison de rêve. Service professionnel et rapide."</p>
-                    <h3>— Marie Kouamé</h3>
-                </div>
-                <div class="card">
-                    <p>"Excellente expertise en géomatique. Les plans fournis sont très détaillés et précis."</p>
-                    <h3>— Ahmed Traoré</h3>
-                </div>
-                <div class="card">
-                    <p>"Équipe comptable très compétente. Ils ont optimisé ma fiscalité efficacement."</p>
-                    <h3>— Jean Coulibaly</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- APPEL À L'ACTION -->
-        <section style="text-align: center; padding: 3rem 0; background: linear-gradient(135deg, #0066cc 0%, #004999 100%); color: white; margin: 0 -2rem; padding: 3rem 2rem;">
-            <h2 style="color: white; margin-bottom: 1rem;">Vous avez un projet immobilier ?</h2>
-            <p style="color: white; margin-bottom: 2rem; font-size: 1.1rem;">Contactez-nous dès aujourd'hui pour discuter de vos besoins</p>
-            <a href="contact.html" class="btn">Nous contacter</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>DB SERVICE IMMOBILIER</h3>
-                <p>Votre partenaire de confiance pour l'immobilier, la géomatique et la comptabilité.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>📍 Abidjan, Côte d'Ivoire</p>
-                <p>📞 +225 XX XX XX XX</p>
-                <p>✉️ contact@dbserviceimmobilier.ci</p>
-            </div>
-            <div class="footer-section">
-                <h3>Liens rapides</h3>
-                <a href="proprietes.html">Propriétés</a>
-                <a href="services.html">Services</a>
-                <a href="contact.html">Contact</a>
-                <a href="geometre.html">Géomètre</a>
-            </div>
-            <div class="footer-section">
-                <h3>Réseaux sociaux</h3>
-                <div class="social-icons">
-                    <a href="#" title="Facebook">f</a>
-                    <a href="#" title="LinkedIn">in</a>
-                    <a href="#" title="WhatsApp">W</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 DB SERVICE IMMOBILIER. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+<!-- ...existing code... -->
 </body>
 </html>
