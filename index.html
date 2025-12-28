@@ -1,202 +1,27 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DB SERVICE IMMOBILIER - Immobilier, Géomatique, Comptabilité. Duékoué, Côte d'Ivoire. Vente, achat, levés topographiques, paiement en ligne." />
-  <title>DB SERVICE IMMOBILIER - Immobilier & Géomatique en Côte d'Ivoire</title>
-  <link rel="stylesheet" href="/Db-service-immobilier.COM/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DB SERVICE IMMOBILIER</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <h1>DB SERVICE IMMOBILIER</h1>
-          <p>Immobilier • Géomatique • Comptabilité</p>
-        </div>
-        <div class="nav-menu">
-          <ul>
-            <li><a href="index.html" class="active">Accueil</a></li>
-            <li><a href="proprietes.html">Propriétés</a></li>
-            <li><a href="sig.html">Carte SIG</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="paiement.html">Paiement</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="btn-login">Connexion</a></li>
-          </ul>
-        </div>
-        <div class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="brand"><a href="index.html">DB SERVICE IMMOBILIER</a></div>
+    <nav class="main-nav">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="proprietes.html">Propriétés</a>
+      <a href="carte.html">Carte</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Votre Expert en Immobilier & Géomatique</h2>
-      <p>Duékoué - Côte d'Ivoire | Services immobiliers, géomatiques et comptabilité</p>
-      <a href="proprietes.html" class="btn btn-primary">Consulter nos terrains</a>
-    </div>
-  </section>
-
-  <!-- Statistiques -->
-  <section class="stats">
-    <div class="stat-card">
-      <h3>Immobilier</h3>
-      <p>Achat • Vente • Promotion</p>
-    </div>
-    <div class="stat-card">
-      <h3>Géomatique</h3>
-      <p>Levés • Bornage • SIG</p>
-    </div>
-    <div class="stat-card">
-      <h3>Comptabilité</h3>
-      <p>Gestion • Facturation • Rapports</p>
-    </div>
-    <div class="stat-card">
-      <h3>Paiement</h3>
-      <p>Mobile Money • Carte • Virement</p>
-    </div>
-  </section>
-
-  <!-- Propriétés en Vedette -->
-  <section class="featured-properties">
-    <div class="container">
-      <h2>Nos propriétés en vedette</h2>
-      <div class="properties-grid" id="featured-list">
-        <p>Chargement...</p>
-      </div>
-      <div style="text-align: center; margin-top: 30px;">
-        <a href="proprietes.html" class="btn btn-secondary">Consulter tous les terrains</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section class="services">
-    <div class="container">
-      <h2>Nos Services Principaux</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🏠</div>
-          <h3>Immobilier</h3>
-          <p>Achat, vente, mise en relation, gestion et conseil foncier</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🗺️</div>
-          <h3>Géomatique</h3>
-          <p>Levés topographiques, bornage, lotissement et SIG</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💰</div>
-          <h3>Comptabilité</h3>
-          <p>Suivi des ventes, gestion des paiements et rapports</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💳</div>
-          <h3>Paiement en Ligne</h3>
-          <p>Mobile Money, carte bancaire et virements sécurisés</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🤖</div>
-          <h3>DB-Assistant IA</h3>
-          <p>Assistance 24h/24, orientation et aide à la décision</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>SIG Interactif</h3>
-          <p>Système de gestion numérique avec carte interactive</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Témoignages -->
-  <section class="testimonials">
-    <div class="container">
-      <h2>Témoignages de nos clients</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="quote">"Service excellent et équipe très professionnelle! Ils m'ont aidé à trouver ma maison en 3 mois seulement."</p>
-          <p class="author">— Marie Dupont</p>
-        </div>
-        <div class="testimonial-card">
-          <p class="quote">"Meilleure agence immobilière de la région. Prix justes et transparence totale."</p>
-          <p class="author">— Jean-Pierre Martin</p>
-        </div>
-        <div class="testimonial-card">
-          <p class="quote">"Équipe reactive et compétente. J'ai vendu mon appartement en 6 semaines à bon prix."</p>
-          <p class="author">— Sophie Laurent</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter">
-    <div class="container">
-      <h2>Restez informé</h2>
-      <p>Recevez les actualités et meilleures opportunités immobilières dans votre boîte mail</p>
-      <form class="newsletter-form" id="newsletter-form">
-        <input type="email" placeholder="Votre adresse email" required />
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h4>DB SERVICE IMMOBILIER</h4>
-          <p>Services immobiliers, géomatiques et comptabilité en Côte d'Ivoire.</p>
-          <div class="social-links">
-            <a href="#" title="Facebook">f</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="Twitter">𝕏</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="proprietes.html">Propriétés</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">À propos</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact</h4>
-          <p>📞 +33 1 23 45 67 89<br/>
-             📧 info@dbservices-immobiliers.fr<br/>
-             📍 123 Avenue des Champs, Paris 75008</p>
-        </div>
-        <div class="footer-section">
-          <h4>Horaires</h4>
-          <p>Lun-Ven: 08:00 - 19:00<br/>
-             Sam: 10:00 - 18:00<br/>
-             Dim: Fermé</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Db Services Immobiliers. Tous droits réservés.</p>
-        <ul>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Politique de confidentialité</a></li>
-          <li><a href="#">Conditions d'utilisation</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <script src="/Db-service-immobilier.COM/script.js"></script>
+  <main class="container">
+    <h1>Bienvenue chez DB SERVICE IMMOBILIER</h1>
+    <p>Accompagnement immobilier, géomatique et comptabilité.</p>
+  </main>
+  <footer class="site-footer">© DB SERVICE IMMOBILIER</footer>
+  <script src="js/main.js"></script>
 </body>
 </html>
