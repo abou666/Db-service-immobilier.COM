@@ -2,19 +2,50 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Connexion – SIG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Db Services Immobiliers - SIG</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="login">
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Db Services Immobiliers</h1>
+      <p>Système d'Information Géographique</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#carte">Carte</a></li>
+        <li><a href="#proprietes">Propriétés</a></li>
+        <li><a href="login.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<h2>Connexion – Db Services Immobiliers</h2>
+  <main>
+    <section id="accueil" class="section">
+      <h2>Bienvenue</h2>
+      <p>Explorez notre base de données immobilière avec notre Système d'Information Géographique (SIG).</p>
+      <a href="#carte" class="btn">Accéder à la carte</a>
+    </section>
 
-<input type="email" id="email" placeholder="Email" />
-<input type="password" id="password" placeholder="Mot de passe" />
-<button onclick="login()">Se connecter</button>
+    <section id="carte" class="section">
+      <h2>Carte Interactive</h2>
+      <div id="map"></div>
+    </section>
 
-<p id="message"></p>
+    <section id="proprietes" class="section">
+      <h2>Propriétés Récentes</h2>
+      <div id="properties-list" class="properties-grid">
+        <p>Chargement des propriétés...</p>
+      </div>
+    </section>
+  </main>
 
-<script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 Db Services Immobiliers. Tous droits réservés.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
