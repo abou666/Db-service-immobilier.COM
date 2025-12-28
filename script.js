@@ -393,4 +393,250 @@ document.querySelectorAll('.property-card, .service-card, .testimonial-card').fo
   observer.observe(el);
 });
 
-console.log('Site Db Services Immobiliers chargé avec succès!');
+// ===== DB-ASSISTANT IA CHATBOT =====
+class DBAssistant {
+  constructor() {
+    this.responses = {
+      salut: "Bonjour! 👋 Je suis DB-Assistant, l'assistant IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider?",
+      hello: "Bonjour! 👋 Je suis DB-Assistant, l'assistant IA de DB SERVICE IMMOBILIER. Comment puis-je vous aider?",
+      terrain: "🏞️ Nous avons plusieurs terrains disponibles. Vous cherchez un terrain pour:\n- Habitation\n- Commerce\n- Agriculture\nQuel type vous intéresse?",
+      prix: "💰 Nos prix varient selon la taille et la localisation:\n- Petits terrains: 50M-150M FCFA\n- Moyens: 150M-300M FCFA\n- Grands: 300M+ FCFA\nVoulez-vous connaître les détails?",
+      paiement: "💳 Nous acceptons:\n- Mobile Money (Orange, MTN, Moov)\n- Carte bancaire (Visa, Mastercard)\n- Virements bancaires\nRendez-vous sur la page Paiement pour effectuer votre transaction.",
+      services: "🏢 Nos services:\n1. Immobilier (achat, vente, gestion)\n2. Géomatique (levés, bornage, SIG)\n3. Comptabilité immobilière\n4. Paiement en ligne\n5. Assistance 24h/24",
+      contact: "📞 Contactez-nous:\n☎️ Service Client: +225 07 06 48 03 89\n☎️ Direction: +225 07 47 29 65 71\n📧 Email: dbservicesimmobiliers225@gmail.com\n📍 Duékoué, Côte d'Ivoire",
+      geometre: "🗺️ Services géomatiques:\n✓ Levés topographiques précis\n✓ Bornage de terrains\n✓ Lotissement et division\n✓ Plans cadastraux\n✓ Exploitation DWG/PDF/Excel",
+      achat: "🏠 Vous cherchez à acheter?\n1. Consultez notre catalogue sur la page Propriétés\n2. Visualisez sur la Carte SIG\n3. Contactez-nous pour plus d'infos\n4. Finalisez via paiement sécurisé",
+      vente: "💵 Vous voulez vendre votre terrain?\n1. Contactez notre équipe\n2. Nous ferons une évaluation gratuite\n3. Publication sur notre plateforme\n4. Mise en relation avec acheteurs potentiels",
+      aide: "🤖 Je peux vous aider avec:\n- Informations sur les propriétés\n- Services offerts\n- Modes de paiement\n- Coordonnées de contact\n- Fonctionnement du site\nQue puis-je faire pour vous?",
+      default: "Je ne suis pas sûr de votre question. Pouvez-vous reformuler? Vous pouvez demander: 'terrain', 'prix', 'paiement', 'services', 'contact', 'aide'"
+    };
+  }
+
+  respond(input) {
+    const lower = input.toLowerCase().trim();
+    
+    // Rechercher les mots-clés
+    for (let key of Object.keys(this.responses)) {
+      if (lower.includes(key)) {
+        return this.responses[key];
+      }
+    }
+    
+    return this.responses.default;
+  }
+}
+
+// Initialiser l'assistant
+const assistant = new DBAssistant();
+
+// Créer le widget du chatbot
+function initChatbot() {
+  // Ajouter le CSS du chatbot
+  const chatCSS = `
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .chatbot-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0b6623 0%, #094d1b 100%);
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .chatbot-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chatbot-window.active {
+      display: flex;
+    }
+    .chatbot-header {
+      background: linear-gradient(135deg, #0b6623 0%, #094d1b 100%);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chatbot-header h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+    .close-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .message {
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 85%;
+      word-wrap: break-word;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .message.bot {
+      background: #f0f0f0;
+      color: #333;
+      align-self: flex-start;
+    }
+    .message.user {
+      background: #0b6623;
+      color: white;
+      align-self: flex-end;
+    }
+    .chatbot-input {
+      display: flex;
+      padding: 15px;
+      gap: 10px;
+      border-top: 1px solid #eee;
+    }
+    .chatbot-input input {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .chatbot-input input:focus {
+      border-color: #0b6623;
+    }
+    .chatbot-input button {
+      background: #0b6623;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .chatbot-input button:hover {
+      background: #094d1b;
+    }
+  `;
+
+  // Ajouter le style
+  const style = document.createElement('style');
+  style.textContent = chatCSS;
+  document.head.appendChild(style);
+
+  // Créer le HTML du chatbot
+  const chatHTML = `
+    <div class="chatbot-widget">
+      <button class="chatbot-button" id="chatbot-toggle">🤖</button>
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+          <h3>DB-Assistant IA</h3>
+          <button class="close-btn" id="chatbot-close">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+          <div class="message bot">Bonjour! 👋 Je suis DB-Assistant. Comment puis-je vous aider?</div>
+        </div>
+        <div class="chatbot-input">
+          <input type="text" id="chatbot-input" placeholder="Posez une question..." />
+          <button id="chatbot-send">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Ajouter au DOM
+  document.body.insertAdjacentHTML('beforeend', chatHTML);
+
+  // Event listeners
+  const toggle = document.getElementById('chatbot-toggle');
+  const close = document.getElementById('chatbot-close');
+  const send = document.getElementById('chatbot-send');
+  const input = document.getElementById('chatbot-input');
+  const window = document.getElementById('chatbot-window');
+  const messages = document.getElementById('chatbot-messages');
+
+  toggle.addEventListener('click', () => {
+    window.classList.toggle('active');
+    if (window.classList.contains('active')) {
+      input.focus();
+    }
+  });
+
+  close.addEventListener('click', () => {
+    window.classList.remove('active');
+  });
+
+  const sendMessage = () => {
+    const text = input.value.trim();
+    if (!text) return;
+
+    // Ajouter le message utilisateur
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user';
+    userMsg.textContent = text;
+    messages.appendChild(userMsg);
+
+    // Obtenir la réponse
+    const response = assistant.respond(text);
+    
+    // Ajouter la réponse du bot (avec délai)
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.className = 'message bot';
+      botMsg.textContent = response;
+      messages.appendChild(botMsg);
+      messages.scrollTop = messages.scrollHeight;
+    }, 500);
+
+    // Vider l'input
+    input.value = '';
+    messages.scrollTop = messages.scrollHeight;
+  };
+
+  send.addEventListener('click', sendMessage);
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+}
+
+// Initialiser le chatbot au chargement
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initChatbot);
+} else {
+  initChatbot();
+}
+
+console.log('DB SERVICE IMMOBILIER chargé avec succès!');
